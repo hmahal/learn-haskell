@@ -5,7 +5,7 @@ Haskell has a static type system, which allows the typing to be checked at compi
 Types are defined for functions by using the `::` operator. The type shows the mapping of the input type onto the output type. The last type is the output type and the all the types that come beforehand are the input types.
 
 ```haskell
--- example: functionName :: InputType -> OutputType 
+-- example: functionName :: InputType -> OutputType
 
 -- for multiple inputs values: functionName :: InputType1 -> InputType2 -> ... -> OutputType
 
@@ -16,7 +16,28 @@ addThree :: Int -> Int -> Int -> Int
 addThree x y z = x + y + z
 ```
 
-
 ## Common Types
 
 * `Int`: Bounded integer values. The max bound is dependent on the machine archictecture. On 32-bit machines the max is 2^31-1 and on 64-bit, the max bound is 2^63 - 1.
+
+* `Integer`: Unbounded integer values. This can be used to represent values bigger than the bounds of `Int`. However, if the large value is not needed, `Int` is a better choice as it is more efficient.
+
+* `Float`: Single precision floating point.
+
+* `Double`: Double precision floating point.
+
+* `Bool`: Boolean type. Can only be `True` or `False`.
+
+* `Char`: Character type. Denoted by `''` around a character.
+
+## Type Variables
+
+In Haskell, types not in capital case are a `type variable`. This means that type can be of any type. This is similar to generics in other languages. This allows for functions to be general if they don't rely on specific features of the types. This feature allows functions to be polymorphic.
+
+```haskell
+:t head
+head :: [a] -> a
+
+:t fst
+fst :: (a, b) -> a
+```
