@@ -66,7 +66,7 @@ False
 True
 ```
 
-* `Ord`: Types that have an ordering. All previously discussed types are part of this typeclass. the `>`, `<`, `>=` and `<=` are parts of the `Ord` typeclass. There is a `compare` function that takes two values of same type belonging to `Ord` and returns an `Ordering`. `Ordering` is a type that has values `GT`, `LT` and `EQ` for greater than, lesser than and equal to. In order for types to be a part of `Ord`, they must first be a part of the `Eq` typeclass. 
+* `Ord`: Types that have an ordering. All previously discussed types are part of this typeclass. the `>`, `<`, `>=` and `<=` are parts of the `Ord` typeclass. There is a `compare` function that takes two values of same type belonging to `Ord` and returns an `Ordering`. `Ordering` is a type that has values `GT`, `LT` and `EQ` for greater than, lesser than and equal to. In order for types to be a part of `Ord`, they must first be a part of the `Eq` typeclass.
 
 ```haskell
 :t (>)
@@ -88,7 +88,7 @@ True
 GT
 ```
 
-* `Show`: Allows values of types belonging to this class to presented as strings. The function `show` is used to present values as strings. 
+* `Show`: Allows values of types belonging to this class to presented as strings. The function `show` is used to present values as strings.
 
 ```haskell
 show :: Show a => a -> String
@@ -101,7 +101,7 @@ show True
 "True"
 ```
 
-* `Read`: Takes a string and returns the value with type that is a member of this typeclass. This funciton is implemented using the `read` function. If the result from `read` is used, GHC can infer the type it needs to read. If no type annotation is provided and the result is not used, `read` will result in an error. *Type Annotations* are defined using the `::` operator with the type following the operator. 
+* `Read`: Takes a string and returns the value with type that is a member of this typeclass. This funciton is implemented using the `read` function. If the result from `read` is used, GHC can infer the type it needs to read. If no type annotation is provided and the result is not used, `read` will result in an error. *Type Annotations* are defined using the `::` operator with the type following the operator.
 
 ```haskell
 read :: Read a => String -> a
@@ -167,7 +167,7 @@ minBound :: Bool
 False
 ```
 
-* `Num`: Numeric typeclass including real and integral numbers. Whole numbers types belonging to `Num` typeclass are polymorphic constants and can act as any type that is a member of the `Num` typeclass. In order for a type to be a member of `Num` typeclass, they must belong to `Show` and `Eq` as well. 
+* `Num`: Numeric typeclass including real and integral numbers. Whole numbers types belonging to `Num` typeclass are polymorphic constants and can act as any type that is a member of the `Num` typeclass. In order for a type to be a member of `Num` typeclass, they must belong to `Show` and `Eq` as well.
 
 ```haskell
 :t 20
