@@ -166,3 +166,55 @@ capital "Hello"
 ```
 
 I need to spend more time to properly explain _patterns_ but that is all for now. I have added `examples.hs` file which has some functions I used as examples in this file.
+
+## Guards
+
+So previously, we looked at pattern matching as a way to 'guide' to a particular function body based on the value conforming to a form. Guards let us check whether the value contains some property or another. Guards are an alternative to using if-else statements. Guards make it more readable to have multiple conditions and work well with patterns.
+
+Guards use the 'pipe' operator `|`. The statement following the operator is a boolean statement; if the statement is evaluated to `True`, the corresponding function body is used. If the statement is `False`, checking is dropped to the next guard down.
+
+Often, we use `otherwise` as the last guard. `otherwise` is defined as always being true and catches everything that falls to it. We can combine patterns and guards by omitting `otherwise` and letting the evaluation 'fall' to the next pattern.
+
+In pseudocode, it looks something like:
+
+```haskell
+functionName :: (Type a) => a -> ReturnType
+functionName param
+  | param with bool statement = function body
+  | param with bool statement = function body
+  | param with bool statement = function body
+  | param with bool statement = function body
+  | otherwise = defaultFunction
+```
+
+When using guards, sometimes we use the same expressions multiple times and end up repeating ourselves. (See `bmiTellWithCal` in guard_examples.hs) We can use the `where` keyword in order to make our code more readable and define names or functions. We can actually define multiple names/functions in `where` which makes it super useful. So we can rewrite our BMI function as following:
+
+```haskell
+bmiTell :: (RealFloat a) => a -> a -> String  
+bmiTell weight height  
+  | bmi <= 18.5 = "You're underweight, you emo, you!"  
+  | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"  
+  | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"  
+  | otherwise   = "You're a whale, congratulations!"  
+  where bmi = weight / height ^ 2  
+```
+
+One thing to note is that the scope of the `where` bindings is only within the pattern that they are defined in. In order for multiple patterns to access the functions/names, they need to be defined globally.
+
+We can also use where bindings to pattern match, extending our previous example, we can do:
+
+```haskell
+...
+where bmi = weight / height ^ 2
+      (skinny, normal, fat) = (18.5, 25.0, 30.0)
+```
+
+One last thing about the where bindings is that they can be nested. So when defining a function within `where`, we can give those functions their own `where` clauses too.
+
+## Let
+
+In progress
+
+## Case Expressions
+
+In progress
