@@ -2,7 +2,13 @@
 
 Haskell has a static type system, which allows the typing to be checked at compile time. _Everything_ in Haskell has a type. Haskell also has type inference which means that the compiler can infer the type of values and functions on its own. This works well in unambiguous situations. When defining a non-trivial function it is recommended to include the typing.
 
+But what are types? Type is a collection of related values. 
+
 Types are defined for functions by using the `::` operator. The type shows the mapping of the input type onto the output type. The last type is the output type and the all the types that come beforehand are the input types.
+
+Another way to look at `::` operator is that the notation `v :: T` means that _v_ is a value of type _T_ or, `e :: T` means that unevaluated expression _e_ will produce value of type _T_.
+
+In GHCi, we can use `:t` or `:type` to find the type of the expression following the command.
 
 ```haskell
 -- example: functionName :: InputType -> OutputType
@@ -18,7 +24,7 @@ addThree x y z = x + y + z
 
 ## Common Types
 
-* `Int`: Bounded integer values. The max bound is dependent on the machine archictecture. On 32-bit machines the max is 2^31-1 and on 64-bit, the max bound is 2^63 - 1.
+* `Int`: Bounded integer values. The max bound is dependent on the machine architecture. On 32-bit machines the max is 2^31-1 and on 64-bit, the max bound is 2^63 - 1.
 
 * `Integer`: Unbounded integer values. This can be used to represent values bigger than the bounds of `Int`. However, if the large value is not needed, `Int` is a better choice as it is more efficient.
 
@@ -32,7 +38,7 @@ addThree x y z = x + y + z
 
 ## Type Variables
 
-In Haskell, types not in capital case are a `type variable`. This means that type can be of any type. This is similar to generics in other languages. This allows for functions to be general if they don't rely on specific features of the types. This feature allows functions to be polymorphic.
+In Haskell, types not in capital case are a `type variable`. This means that type can be of any type. This is similar to generics in other languages. This allows for functions to be general if they don't rely on specific features of the types. This feature allows functions to be polymorphic. E.g.
 
 ```haskell
 :t head
@@ -101,7 +107,7 @@ show True
 "True"
 ```
 
-* `Read`: Takes a string and returns the value with type that is a member of this typeclass. This funciton is implemented using the `read` function. If the result from `read` is used, GHC can infer the type it needs to read. If no type annotation is provided and the result is not used, `read` will result in an error. *Type Annotations* are defined using the `::` operator with the type following the operator.
+* `Read`: Takes a string and returns the value with type that is a member of this typeclass. This function is implemented using the `read` function. If the result from `read` is used, GHC can infer the type it needs to read. If no type annotation is provided and the result is not used, `read` will result in an error. *Type Annotations* are defined using the `::` operator with the type following the operator.
 
 ```haskell
 read :: Read a => String -> a
@@ -135,7 +141,7 @@ read "(3, 'a')" :: (Int, Char)
 (3, 'a')
 ```
 
-* `Enum`: Sequentally ordered types belong to this typeclass. Members of this typeclass provide `succ` and `pred` functions which serve as successors and predecesors. The types belonging to `Enum` are `()`, `Bool`, `Char`, `Ordering`, `Int`, `Integer`, `Float` and `Double`
+* `Enum`: Sequentially ordered types belong to this typeclass. Members of this typeclass provide `succ` and `pred` functions which serve as successors and predecessors. The types belonging to `Enum` are `()`, `Bool`, `Char`, `Ordering`, `Int`, `Integer`, `Float` and `Double`
 
 ```haskell
 :t succ

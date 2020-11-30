@@ -1,6 +1,6 @@
 # Function Syntax in Haskell
 
-This part introduces some syntactic features of haskell that are really useful for writing simpler and readable code. At the end of this chapter, I should have enough knowledge of haskell syntax and conventions so that I can write basic functions.
+This part introduces some syntactic features of Haskell that are really useful for writing simpler and readable code. At the end of this chapter, I should have enough knowledge of Haskell syntax and conventions so that I can write basic functions.
 
 ## Pattern Matching
 
@@ -120,7 +120,7 @@ tell [1..2]
 "1 2 ..."
 ```
 
-The function above covers all cases for lists, empty, single element or `singleton`, two element list and list with more than two elements. A better way to write `(x:[])` would be `[x]`. Similarily, `(x:y:[])` can be written as `[x,y]`. But there is no way to rewrite the `(x:y:_)` pattern.
+The function above covers all cases for lists, empty, single element or `singleton`, two element list and list with more than two elements. A better way to write `(x:[])` would be `[x]`. Similarly, `(x:y:[])` can be written as `[x,y]`. But there is no way to rewrite the `(x:y:_)` pattern.
 
 I implemented a length function previously using list comprehension. I can rewrite it using pattern matching as well. Like so:
 
@@ -137,7 +137,7 @@ length' [1,2]
 2
 ```
 
-The `length'` function gets called recursively where the base case is an empty list. We `_` because we don't actually care about the value of list head, just that it exists. Similarily, we can define function such as `sum`.
+The `length'` function gets called recursively where the base case is an empty list. We `_` because we don't actually care about the value of list head, just that it exists. Similarly, we can define function such as `sum`.
 
 ```haskell
 sum' :: (Num a) => [a] -> a
@@ -175,7 +175,7 @@ Guards use the 'pipe' operator `|`. The statement following the operator is a bo
 
 Often, we use `otherwise` as the last guard. `otherwise` is defined as always being true and catches everything that falls to it. We can combine patterns and guards by omitting `otherwise` and letting the evaluation 'fall' to the next pattern.
 
-In pseudocode, it looks something like:
+In pseudo-code, it looks something like:
 
 ```haskell
 functionName :: (Type a) => a -> ReturnType

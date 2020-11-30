@@ -1,5 +1,9 @@
 # List Comprehension & Tuples
 
+A _list_ is a sequence of elements of the same type. The syntax is similar to arrays in most languages, `[]`. Lists containing a single element are called _singleton_ lists. The type of a list can be denoted as `[Type]`. E.g. a list of boolean values, `[True, False, False]` can be denoted as `[Bool]`. 
+
+An important thing to note with lists is that lists in Haskell can be _infinitely_ long, due to the use of lazy evaluation.
+
 ## List Comprehension
 
 * In Haskell in order to perform operations on a list, list comprehension can provide a concise way. In the following example, `x` is drawn for the list `[1..10]` and the element is then doubled.
@@ -51,15 +55,19 @@ removeNonUpperCase "Hahaha! Ahaha!"
 
 ## Tuples
 
+Formally, a _tuple_ is _finite_ sequence of components, with the possibility of components having different types.
+
 Tuples in Haskell are similar to lists as they store multiple different values into a singular value. The difference however is quite important.
 
 1. Lists store value of a single type and do not care about how many values are stored in the list. Tuples however contain the number of values stored in them. The type of a tuple contains how many values it has and the type of the values.
 
-2. As mentioned above, tuples do not have to be homogenous.
+2. As mentioned above, tuples do not have to be homogeneous.
 
 3. Tuples are defined using `(x,y,z)` rather than `[]`.
 
 Tuples should be used when the number of values is known. You cannot write general functions to append to tuples as different sized tuples are different types. There is no type as a singleton tuple as it would only contain a singular value and not provide any additional benefit.
+
+The number of elements in a tuple is called its _arity_. Another important thing to note is that tuples of arity one, e.g. `(1)` are not allowed. The type of a tuple conveys its arity. There is no restriction on the types that can make up a tuple. Last thing to note is that, the types of the tuple and tuple components is inferred prior to evaluation.
 
 ```haskell
 [(1,2),(3,4,5),(6,7)] -- will result in error as the middle tuple is of a different type
