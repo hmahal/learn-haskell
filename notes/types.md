@@ -1,6 +1,8 @@
 # Types and Typeclasses
 
-Haskell has a static type system, which allows the typing to be checked at compile time. _Everything_ in Haskell has a type. Haskell also has type inference which means that the compiler can infer the type of values and functions on its own. This works well in unambiguous situations. When defining a non-trivial function it is recommended to include the typing.
+Haskell has a static type system, which allows the typing to be checked at compile time. _Everything_ in Haskell has a type. Haskell also has type inference which means that the compiler can infer the type of values and functions on its own. This works well in unambiguous situations. When defining a non-trivial function it's better to include the typing.
+
+One more thing I would like to note here, type errors can't occur during evaluation.
 
 But what are types? Type is a collection of related values. 
 
@@ -32,9 +34,14 @@ addThree x y z = x + y + z
 
 * `Double`: Double precision floating point.
 
-* `Bool`: Boolean type. Can only be `True` or `False`.
+* `Bool`: Boolean type. Can only be two logical values: `True` or `False`.
 
 * `Char`: Character type. Denoted by `''` around a character.
+
+* `String`: Sequences of characters and empty string "". As shown by empty string, all strings must be enclosed in double quotes.
+
+## List Type
+Link to the lists.md file
 
 ## Type Variables
 

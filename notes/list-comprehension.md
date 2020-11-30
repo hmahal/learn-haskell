@@ -1,8 +1,10 @@
 # List Comprehension & Tuples
 
+## Lists
+
 A _list_ is a sequence of elements of the same type. The syntax is similar to arrays in most languages, `[]`. Lists containing a single element are called _singleton_ lists. The type of a list can be denoted as `[Type]`. E.g. a list of boolean values, `[True, False, False]` can be denoted as `[Bool]`. 
 
-An important thing to note with lists is that lists in Haskell can be _infinitely_ long, due to the use of lazy evaluation.
+An important thing to note with lists is that lists in Haskell can be _infinitely_ long, due to the use of lazy evaluation. The type of list, `[False,True,False] :: [Bool]` does not convey any information about its length.
 
 ## List Comprehension
 
